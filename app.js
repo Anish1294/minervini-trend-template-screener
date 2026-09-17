@@ -16,7 +16,9 @@ const state = {
   activeChip: "all",
   starred: new Set(),
   selectedTicker: null,
-  snapshotSource: "live"
+  snapshotSource: "live",
+  page: 1,
+  pageSize: 25
 };
 
 const SNAPSHOT_CACHE_KEY = "vcp_minervini_last_valid_snapshot_v1";
@@ -370,6 +372,7 @@ function applyFilters() {
     return matchesQuery && matchesRs && matchesHigh && matchesVol && matchesChip;
   });
 
+  state.page = 1;
   sortRows();
   renderRows();
 }
@@ -396,16 +399,33 @@ function renderRows() {
 
   const tbody = $("#stock-rows");
   const emptyState = $("#empty-state");
+  const paginationBar = $("#pagination-bar");
 
   if (count === 0) {
     tbody.innerHTML = "";
     emptyState.classList.remove("hidden");
+    paginationBar?.classList.add("hidden");
     return;
   }
 
   emptyState.classList.add("hidden");
+  paginationBar?.classList.remove("hidden");
 
-  tbody.innerHTML = state.filtered.map((stock) => {
+  // Pagination bounds & slice
+  const pageSize = state.pageSize === "all" ? count : Number(state.pageSize);
+  const totalPages = Math.max(1, Math.ceil(count / pageSize));
+  if (state.page > totalPages) {
+    state.page = totalPages;
+  }
+  if (state.page < 1) {
+    state.page = 1;
+  }
+
+  const startIdx = (state.page - 1) * pageSize;
+  const endIdx = Math.min(count, startIdx + pageSize);
+  const pageRows = state.filtered.slice(startIdx, endIdx);
+
+  tbody.innerHTML = pageRows.map((stock) => {
     const isStarred = state.starred.has(stock.ticker);
     const dayGain = stock.change_pct || 0;
     const isPos = dayGain >= 0;
@@ -479,6 +499,74 @@ function renderRows() {
   }).join("");
 
   updateSortHeaders();
+  renderPagination(count, startIdx, endIdx, totalPages);
+}
+
+function renderPagination(totalCount, startIdx, endIdx, totalPages) {
+  const rangeEl = $("#pagination-range");
+  if (rangeEl) {
+    if (totalCount === 0) {
+      rangeEl.innerHTML = "No qualified setups";
+    } else {
+      const from = startIdx + 1;
+      const to = Math.min(totalCount, endIdx);
+      rangeEl.innerHTML = `Showing <strong>${from}–${to}</strong> of <strong>${totalCount.toLocaleString()}</strong> qualified setups`;
+    }
+  }
+
+  const prevBtn = $("#pg-prev");
+  const nextBtn = $("#pg-next");
+  if (prevBtn) prevBtn.disabled = state.page <= 1;
+  if (nextBtn) nextBtn.disabled = state.page >= totalPages;
+
+  const numbersContainer = $("#pg-numbers");
+  if (!numbersContainer) return;
+
+  if (totalPages <= 1) {
+    numbersContainer.innerHTML = "";
+    return;
+  }
+
+  const pages = getPaginationPages(state.page, totalPages);
+  numbersContainer.innerHTML = pages.map((p) => {
+    if (p === "...") {
+      return '<span class="pg-num-btn ellipsis" aria-hidden="true">…</span>';
+    }
+    const isActive = p === state.page ? "active" : "";
+    return `<button class="pg-num-btn ${isActive}" data-page="${p}" type="button" aria-label="Page ${p}" ${p === state.page ? 'aria-current="page"' : ''}>${p}</button>`;
+  }).join("");
+}
+
+function getPaginationPages(current, total) {
+  if (total <= 7) {
+    return Array.from({ length: total }, (_, i) => i + 1);
+  }
+
+  if (current <= 4) {
+    return [1, 2, 3, 4, 5, "...", total];
+  }
+
+  if (current >= total - 3) {
+    return [1, "...", total - 4, total - 3, total - 2, total - 1, total];
+  }
+
+  return [1, "...", current - 1, current, current + 1, "...", total];
+}
+
+function goToPage(pageNum) {
+  state.page = pageNum;
+  renderRows();
+
+  const tableState = $("#table-state");
+  if (tableState) {
+    const rect = tableState.getBoundingClientRect();
+    if (rect.top < 60) {
+      window.scrollTo({
+        top: window.scrollY + rect.top - 70,
+        behavior: "smooth",
+      });
+    }
+  }
 }
 
 function updateSortHeaders() {
@@ -720,8 +808,48 @@ function setupEvents() {
     }
   });
 
+  // Pagination Controls
+  setupPaginationEvents();
+
   // Expose toggleStar globally for inline onclick
   window.toggleStar = toggleStar;
+}
+
+function setupPaginationEvents() {
+  $("#pg-prev")?.addEventListener("click", () => {
+    if (state.page > 1) {
+      goToPage(state.page - 1);
+    }
+  });
+
+  $("#pg-next")?.addEventListener("click", () => {
+    const count = state.filtered.length;
+    const pageSize = state.pageSize === "all" ? count : Number(state.pageSize);
+    const totalPages = Math.max(1, Math.ceil(count / pageSize));
+    if (state.page < totalPages) {
+      goToPage(state.page + 1);
+    }
+  });
+
+  $("#pg-numbers")?.addEventListener("click", (e) => {
+    const btn = e.target.closest(".pg-num-btn");
+    if (!btn || btn.classList.contains("ellipsis") || btn.classList.contains("active")) return;
+    const targetPage = Number(btn.dataset.page);
+    if (targetPage && !Number.isNaN(targetPage)) {
+      goToPage(targetPage);
+    }
+  });
+
+  $$(".size-pill").forEach((pill) => {
+    pill.addEventListener("click", () => {
+      const size = pill.dataset.size;
+      if (state.pageSize === size) return;
+      state.pageSize = size;
+      state.page = 1;
+      $$(".size-pill").forEach((p) => p.classList.toggle("active", p.dataset.size === size));
+      renderRows();
+    });
+  });
 }
 
 // Initialize
