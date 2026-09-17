@@ -16,8 +16,10 @@ const state = {
   activeChip: "all",
   starred: new Set(),
   selectedTicker: null,
-  isUsingFallback: false
+  snapshotSource: "live"
 };
+
+const SNAPSHOT_CACHE_KEY = "vcp_minervini_last_valid_snapshot_v1";
 
 // Utilities & Formatters
 const num = (v) => (Number.isFinite(Number(v)) ? Number(v) : null);
@@ -92,6 +94,49 @@ function updateWatchlistCount() {
   if (countEl) countEl.textContent = state.starred.size;
 }
 
+function validateSnapshot(payload) {
+  if (!payload || !Array.isArray(payload.stocks) || payload.stocks.length === 0) {
+    throw new Error("Invalid payload: missing stocks array");
+  }
+  if (payload.count !== undefined && Number(payload.count) !== payload.stocks.length) {
+    throw new Error("Invalid payload: count does not match stocks");
+  }
+  if (payload.stocks.some((stock) => !stock || typeof stock !== "object" || Array.isArray(stock))) {
+    throw new Error("Invalid payload: stock rows must be objects");
+  }
+  const tickers = payload.stocks.map((stock) => String(stock?.ticker || "").toUpperCase());
+  if (tickers.some((ticker) => !ticker) || new Set(tickers).size !== tickers.length) {
+    throw new Error("Invalid payload: duplicate or empty tickers");
+  }
+  if (payload.session_date && !/^\d{4}-\d{2}-\d{2}$/.test(payload.session_date)) {
+    throw new Error("Invalid payload: session_date");
+  }
+  return payload;
+}
+
+function readCachedSnapshot() {
+  try {
+    const cached = JSON.parse(localStorage.getItem(SNAPSHOT_CACHE_KEY) || "null");
+    return cached ? validateSnapshot(cached) : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function storeCachedSnapshot(payload) {
+  try {
+    localStorage.setItem(SNAPSHOT_CACHE_KEY, JSON.stringify(payload));
+  } catch (error) {
+    // Storage can be unavailable in private browsing; the live view still works.
+  }
+}
+
+async function fetchSnapshot(url) {
+  const response = await fetch(url, { cache: "no-cache" });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return validateSnapshot(await response.json());
+}
+
 // Load Application Data
 async function load() {
   initWatchlist();
@@ -104,30 +149,36 @@ async function load() {
     });
     bindProductLinks();
 
-    // 2. Attempt to load snapshot from remote R2 endpoint
+    // 2. Load the static Pages snapshot. A cached last-known-good payload is
+    // used only when the network is unavailable; it is never presented as a
+    // fresh market close.
     let payload = null;
     try {
-      payload = await fetch(state.config.data.url, { cache: "default" }).then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      });
+      payload = await fetchSnapshot(state.config.data.url);
+      state.snapshotSource = "live";
+      storeCachedSnapshot(payload);
     } catch (fetchErr) {
-      console.warn("Remote R2 snapshot not yet populated, loading verified baseline snapshot", fetchErr);
-      state.isUsingFallback = true;
-      payload = await fetch("sample-snapshot.json").then((r) => {
-        if (!r.ok) throw new Error("Could not load sample-snapshot.json");
-        return r.json();
-      });
-    }
-
-    if (!payload || !Array.isArray(payload.stocks)) {
-      throw new Error("Invalid payload: missing stocks array");
+      console.warn("Live Pages snapshot unavailable; trying last-known-good cache", fetchErr);
+      payload = readCachedSnapshot();
+      if (payload) {
+        state.snapshotSource = "cached";
+      } else {
+        // This is an explicitly labelled demo fallback for first-time offline
+        // visits. It must never be described as verified live market data.
+        payload = await fetchSnapshot("sample-snapshot.json");
+        state.snapshotSource = "sample";
+      }
     }
 
     state.stocks = payload.stocks.map(normalizeStock).filter((s) => s.ticker);
-    
-    if (state.isUsingFallback) {
+    if (state.snapshotSource !== "live") {
       $("#fallback-notice")?.classList.remove("hidden");
+      const notice = $("#fallback-notice .banner-text");
+      if (notice) {
+        notice.textContent = state.snapshotSource === "cached"
+          ? "Offline: displaying the last successful market snapshot."
+          : "Sample data only: live market data is unavailable.";
+      }
     }
 
     renderFreshness(payload);
@@ -183,12 +234,28 @@ function bindProductLinks() {
 }
 
 function renderFreshness(payload) {
-  const stamp = payload.data_as_of || payload.generated_at;
-  const dateFormatted = stamp
-    ? new Date(stamp).toLocaleString(undefined, { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })
-    : "Market Close Verified";
-    
-  $("#as-of").textContent = `Verified: ${dateFormatted}`;
+  const session = payload.session_date;
+  let dateFormatted = "Market close date unavailable";
+  if (session && /^\d{4}-\d{2}-\d{2}$/.test(session)) {
+    const [year, month, day] = session.split("-").map(Number);
+    dateFormatted = new Intl.DateTimeFormat(undefined, {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "America/New_York"
+    }).format(new Date(Date.UTC(year, month - 1, day, 12)));
+  } else if (payload.generated_at) {
+    dateFormatted = new Date(payload.generated_at).toLocaleString(undefined, {
+      month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit"
+    });
+  }
+
+  const prefix = state.snapshotSource === "cached"
+    ? "Offline · showing market close"
+    : state.snapshotSource === "sample"
+      ? "Demo sample · not live data"
+      : "Data as of market close";
+  $("#as-of").textContent = `${prefix} · ${dateFormatted}`;
   $("#universe-note").textContent = `${state.stocks.length} Qualified US Common Equities ($500M+ Cap)`;
 }
 
