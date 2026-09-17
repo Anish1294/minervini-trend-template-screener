@@ -31,15 +31,29 @@ does not modify the VCPScanner backend or its pipeline.
 
 ### GitHub Actions setup
 
-Configure GitHub Pages to use **GitHub Actions** as its publishing source. Add
-the following repository secret:
+Configure GitHub Pages to use **GitHub Actions** as its publishing source. The
+workflow opens a short-lived SSH tunnel to the database server; PostgreSQL is
+never exposed to GitHub's changing runner IP ranges. Add these repository
+secrets:
 
 `PUBLIC_SNAPSHOT_DATABASE_URL`
 
-It must be a read-only PostgreSQL credential limited to `screening_metrics` and
-`price_daily`, the two tables required by `scripts/refresh_snapshot.py`. The
-workflow derives the standard Pages `current.json` URL automatically. If you
-use a custom Pages domain, add the
+This is the `public_snapshot_reader` credential, pointed at the tunnel endpoint
+(`127.0.0.1:15433` in the workflow), and limited to `screening_metrics` and
+`price_daily`, the two tables required by `scripts/refresh_snapshot.py`.
+
+`PUBLIC_SNAPSHOT_SSH_KEY`
+
+The private Ed25519 key for the dedicated `snapshot-tunnel` OS account on the
+database server. It must not be a root or pipeline-server key.
+
+`PUBLIC_SNAPSHOT_SSH_KNOWN_HOSTS`
+
+The pinned SSH host-key line for the database server. This prevents the Action
+from trusting an unverified host during tunnel setup.
+
+The workflow derives the standard Pages `current.json` URL automatically. If
+you use a custom Pages domain, add the
 repository variable `PUBLIC_SNAPSHOT_URL` with that URL; this lets retries
 preserve the existing payload when the database session has not changed.
 
