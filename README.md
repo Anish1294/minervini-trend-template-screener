@@ -17,13 +17,34 @@ The page provides:
 
 ## Data architecture
 
-The application runs entirely client-side and fetches verified market data snapshots directly from the VCP Scanner global CDN:
+The application runs entirely client-side and serves `current.json` from the
+same GitHub Pages artifact as the HTML, JavaScript, and CSS. A scheduled GitHub
+Action reads the database with a dedicated read-only credential, generates the
+snapshot, validates it, and deploys the Pages artifact. It does not call R2 and
+does not modify the VCPScanner backend or its pipeline.
 
-`https://assets.vcpscanner.com/public-screens/v1/minervini-trend-template/current.json`
+- **Daily refresh**: The workflow runs at 8:17 PM and 10:17 PM America/New_York on weekdays. The second run is an idempotent retry for slow database refreshes.
+- **Session-based freshness**: Every generated payload includes `session_date`, the completed market session represented by the data.
+- **Stale-data guard**: The builder refuses to publish when `screening_metrics` has not caught up with the latest completed `price_daily` session.
+- **Offline resilient**: A successful payload is cached in the browser. Offline visits show the cached session date; a first-time offline visit is explicitly labelled sample data.
+- **Zero client credentials**: No API keys, database credentials, or proprietary configurations are shipped to the browser.
 
-- **Authoritative & Verified**: Snapshots are refreshed daily following the US market close.
-- **Offline Resilient**: If the CDN snapshot is unreachable or when previewing offline, the application seamlessly falls back to a verified baseline snapshot (`sample-snapshot.json`).
-- **Zero Client Credentials**: No API keys, database credentials, or proprietary configurations are required to run or host the application.
+### GitHub Actions setup
+
+Configure GitHub Pages to use **GitHub Actions** as its publishing source. Add
+the following repository secret:
+
+`PUBLIC_SNAPSHOT_DATABASE_URL`
+
+It must be a read-only PostgreSQL credential limited to `screening_metrics` and
+`price_daily`, the two tables required by `scripts/refresh_snapshot.py`. The
+workflow derives the standard Pages `current.json` URL automatically. If you
+use a custom Pages domain, add the
+repository variable `PUBLIC_SNAPSHOT_URL` with that URL; this lets retries
+preserve the existing payload when the database session has not changed.
+
+The workflow file is `.github/workflows/refresh-and-deploy.yml`. It can also be
+started manually with **Run workflow** for a controlled refresh.
 
 ## Local preview
 
@@ -37,7 +58,9 @@ python -m http.server 8080
 npx serve .
 ```
 
-Open `http://localhost:8080` in your browser. The table will load the latest verified market snapshot.
+Open `http://localhost:8080` in your browser. The table will load `current.json`
+when the file exists in the served directory, otherwise it will show the
+clearly labelled sample fallback.
 
 ## Methodology
 
