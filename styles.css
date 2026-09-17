@@ -1918,3 +1918,186 @@ button, select, input {
     align-items: flex-start;
   }
 }
+
+/* ==========================================================================
+   Focused Upgrade Bridge CTA & Author E-E-A-T Card
+   ========================================================================== */
+.upgrade-cta-section {
+  margin-top: 40px;
+  margin-bottom: 36px;
+}
+
+.upgrade-cta-card {
+  background: linear-gradient(135deg, rgba(20, 24, 33, 0.95), rgba(15, 18, 26, 0.95));
+  border: 1px solid rgba(0, 210, 180, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.upgrade-cta-content {
+  max-width: 680px;
+}
+
+.upgrade-cta-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 6px 0 10px 0;
+  letter-spacing: -0.01em;
+}
+
+.upgrade-cta-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.cta-eyebrow {
+  font-size: 11px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-teal);
+}
+
+.upgrade-cta-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cta-subtext {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.methodology-audit-explainer {
+  margin-bottom: 24px;
+}
+
+.explainer-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--accent-teal);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+}
+
+.explainer-card h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 750;
+  color: #ffffff;
+}
+
+.explainer-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.author-section {
+  margin-top: 24px;
+  margin-bottom: 48px;
+}
+
+.author-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-teal), #0284c7);
+  color: #0d1117;
+  font-weight: 800;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.author-info {
+  flex: 1;
+}
+
+.author-name-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.author-name-row h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.author-title {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.author-x-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-teal);
+  text-decoration: none;
+  background: rgba(0, 210, 180, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 210, 180, 0.2);
+  transition: all 0.15s ease;
+}
+
+.author-x-link:hover {
+  background: rgba(0, 210, 180, 0.18);
+  border-color: var(--accent-teal);
+}
+
+.author-bio {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .upgrade-cta-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+  }
+  .upgrade-cta-action {
+    width: 100%;
+  }
+  .upgrade-cta-action .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+  .author-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
