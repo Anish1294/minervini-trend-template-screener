@@ -430,13 +430,21 @@ def hydrate_html(html_text: str, payload: dict[str, Any]) -> str:
     html_text = html_text.replace('id="loading-state" class="state-container"', 'id="loading-state" class="state-container hidden"')
 
     # 6. Inject Embedded Initial Snapshot Script
-    compact_json = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+    # Escape characters that can terminate an HTML script element. The payload
+    # contains database-derived company names, so raw JSON must not be inserted
+    # directly into the document even when it is valid JSON.
+    compact_json = (
+        json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+        .replace("<", "\\u003c")
+        .replace(">", "\\u003e")
+        .replace("&", "\\u0026")
+    )
     script_tag = f'<!-- SSR_INITIAL_SNAPSHOT -->\n  <script id="initial-snapshot" type="application/json">{compact_json}</script>'
 
     if '<script id="initial-snapshot"' in html_text:
         html_text = re.sub(
             r'<script id="initial-snapshot"[^>]*>.*?</script>',
-            f'<script id="initial-snapshot" type="application/json">{compact_json}</script>',
+            lambda _match: f'<script id="initial-snapshot" type="application/json">{compact_json}</script>',
             html_text,
             flags=re.DOTALL,
         )
