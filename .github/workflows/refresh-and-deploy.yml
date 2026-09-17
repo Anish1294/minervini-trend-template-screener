@@ -39,6 +39,44 @@ jobs:
       - name: Install snapshot dependency
         run: python -m pip install --disable-pip-version-check psycopg2-binary
 
+      - name: Open read-only database tunnel
+        env:
+          SNAPSHOT_SSH_KEY: ${{ secrets.PUBLIC_SNAPSHOT_SSH_KEY }}
+          SNAPSHOT_SSH_KNOWN_HOSTS: ${{ secrets.PUBLIC_SNAPSHOT_SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          install -m 700 -d "$HOME/.ssh"
+          printf '%s\n' "$SNAPSHOT_SSH_KEY" > "$HOME/.ssh/vcp-snapshot-tunnel"
+          chmod 600 "$HOME/.ssh/vcp-snapshot-tunnel"
+          printf '%s\n' "$SNAPSHOT_SSH_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 644 "$HOME/.ssh/known_hosts"
+
+          ssh -fN \
+            -i "$HOME/.ssh/vcp-snapshot-tunnel" \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            -o UserKnownHostsFile="$HOME/.ssh/known_hosts" \
+            -o ExitOnForwardFailure=yes \
+            -o ServerAliveInterval=30 \
+            -o ServerAliveCountMax=3 \
+            -L 15433:127.0.0.1:5433 \
+            snapshot-tunnel@152.53.211.89
+
+          for attempt in $(seq 1 20); do
+            if python - <<'PY'
+          import socket
+          with socket.create_connection(("127.0.0.1", 15433), timeout=1):
+              pass
+          PY
+            then
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "The read-only PostgreSQL tunnel did not open" >&2
+          exit 1
+
       - name: Build verified session snapshot
         env:
           PUBLIC_SNAPSHOT_DATABASE_URL: ${{ secrets.PUBLIC_SNAPSHOT_DATABASE_URL }}
