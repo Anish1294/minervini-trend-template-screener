@@ -2,8 +2,8 @@ name: Refresh market snapshot and deploy Pages
 
 on:
   schedule:
-    # 8:17 PM Eastern, after the 4:30 PM ET backend run and outside the busy
-    # top-of-hour Actions queue. GitHub evaluates this in America/New_York.
+    # 8:17 PM Eastern, after the expected end-of-day data refresh and outside
+    # the busy top-of-hour Actions queue.
     - cron: "17 20 * * 1-5"
       timezone: "America/New_York"
     # Retry later if the backend run was unusually slow or GitHub delayed the
@@ -43,8 +43,10 @@ jobs:
         env:
           SNAPSHOT_SSH_KEY: ${{ secrets.PUBLIC_SNAPSHOT_SSH_KEY }}
           SNAPSHOT_SSH_KNOWN_HOSTS: ${{ secrets.PUBLIC_SNAPSHOT_SSH_KNOWN_HOSTS }}
+          SNAPSHOT_SSH_TARGET: ${{ secrets.PUBLIC_SNAPSHOT_SSH_TARGET }}
         run: |
           set -euo pipefail
+          : "${SNAPSHOT_SSH_TARGET:?PUBLIC_SNAPSHOT_SSH_TARGET is not configured}"
           install -m 700 -d "$HOME/.ssh"
           printf '%s\n' "$SNAPSHOT_SSH_KEY" > "$HOME/.ssh/vcp-snapshot-tunnel"
           chmod 600 "$HOME/.ssh/vcp-snapshot-tunnel"
@@ -61,7 +63,7 @@ jobs:
             -o ServerAliveInterval=30 \
             -o ServerAliveCountMax=3 \
             -L 15433:127.0.0.1:5433 \
-            snapshot-tunnel@152.53.211.89
+            "$SNAPSHOT_SSH_TARGET"
 
           for attempt in $(seq 1 20); do
             if python - <<'PY'
