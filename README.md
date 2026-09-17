@@ -39,8 +39,9 @@ secrets:
 `PUBLIC_SNAPSHOT_DATABASE_URL`
 
 This is the `public_snapshot_reader` credential, pointed at the tunnel endpoint
-(`127.0.0.1:15433` in the workflow), and limited to `screening_metrics` and
-`price_daily`, the two tables required by `scripts/refresh_snapshot.py`.
+(`127.0.0.1:15433` in the workflow). It has `SELECT` on `screening_metrics` and
+`price_daily`, plus column-level `SELECT` only for `ticker`, `company_name`, and
+`country` on `companies`, which the snapshot join needs.
 
 `PUBLIC_SNAPSHOT_SSH_KEY`
 
