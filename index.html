@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free Minervini Trend Template stock screener. Real-time candidate ranking for US Stage 2 growth stocks passing moving average alignment, 52-week-high proximity, and RS Rating >= 70.">
+  <meta name="keywords" content="Minervini trend template screener, Stage 2 stock scanner, VCP screener, Mark Minervini 8 rules, relative strength rating, breakout trading">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://Anish1294.github.io/minervini-trend-template-screener/">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VCP Scanner">
+  <meta property="og:title" content="Minervini Trend Template Stock Screener | VCP Scanner">
+  <meta property="og:description" content="Institutional-grade Stage 2 trend scanner. Filter, inspect, and export US stocks passing Mark Minervini's Trend Template criteria with 8-rule diagnostic audit.">
+  <meta property="og:url" content="https://Anish1294.github.io/minervini-trend-template-screener/">
+  
+  <title>Minervini Trend Template Screener | VCP Scanner</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Minervini Trend Template Stock Screener",
+    "url": "https://Anish1294.github.io/minervini-trend-template-screener/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "creator": {
+      "@type": "Organization",
+      "name": "VCP Scanner",
+      "url": "https://vcpscanner.com"
+    },
+    "isAccessibleForFree": true,
+    "description": "Interactive quantitative screener and diagnostic audit for US equities meeting Mark Minervini Stage 2 Trend Template criteria."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Global Top Navigation -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <a class="brand-link" href="https://vcpscanner.com/?utm_source=github&utm_medium=topbar_logo&utm_campaign=minervini-trend-template-screener" title="VCP Scanner Home">
+          <img src="logo.svg" alt="VCP Scanner" class="brand-logo" width="168" height="27">
+        </a>
+        <div class="terminal-badge">
+          <span class="pulse-dot"></span>
+          <span class="badge-text">STAGE 2 TERMINAL</span>
+        </div>
+      </div>
+      
+      <div class="topbar-right">
+        <div class="hotkey-tip" title="Press / to quickly search candidates">
+          <span class="key-cap">/</span> <span>Search</span>
+        </div>
+        <button id="watchlist-toggle-btn" class="pill-btn" type="button" title="View Starred Stocks">
+          <span class="star-icon">★</span>
+          <span>Watchlist</span>
+          <span id="watchlist-count" class="pill-counter">0</span>
+        </button>
+        <a class="btn-primary" data-product-link href="https://vcpscanner.com/screens/minervini-trend-template?utm_source=github&utm_medium=topbar_cta&utm_campaign=minervini-trend-template-screener">
+          <span>Open Full Terminal</span>
+          <svg class="btn-arrow" viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    
+    <!-- Hero & Strategy Definition Header -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="breadcrumb-row">
+          <span class="crumb-dim">TERMINAL</span>
+          <span class="crumb-slash">/</span>
+          <span class="crumb-dim">PUBLIC SCREENS</span>
+          <span class="crumb-slash">/</span>
+          <span class="crumb-highlight">MINERVINI TREND TEMPLATE</span>
+        </div>
+        
+        <h1 class="hero-title">
+          Minervini Trend Template <span class="gradient-text">Candidate Screener</span>
+        </h1>
+        
+        <p class="hero-desc">
+          Automated quantitative screening for US growth equities coiling in healthy Stage 2 uptrends. Every candidate trades above key moving averages, near annual highs, and exhibits top-tier institutional relative strength.
+        </p>
+
+        <div class="criteria-pill-row">
+          <div class="criteria-tag">
+            <span class="criteria-icon">✓</span> Price > 50 &amp; 200 SMA
+          </div>
+          <div class="criteria-tag">
+            <span class="criteria-icon">✓</span> Within 25% of 52W High
+          </div>
+          <div class="criteria-tag">
+            <span class="criteria-icon">✓</span> RS Rating ≥ 70
+          </div>
+          <div class="criteria-tag">
+            <span class="criteria-icon">✓</span> Market Cap ≥ $500M
+          </div>
+        </div>
+      </div>
+
+      <div class="freshness-card">
+        <div class="freshness-header">
+          <span class="status-indicator"></span>
+          <span class="freshness-label">Verified Market Snapshot</span>
+        </div>
+        <div class="freshness-meta">
+          <strong id="as-of" class="as-of-time">Loading snapshot…</strong>
+          <span id="universe-note" class="universe-detail">Connecting to VCPScanner CDN</span>
+        </div>
+        <div class="freshness-footer">
+          <span class="engine-tag">Powered by VCPScanner Engine</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Metrics & Breadth Overview -->
+    <section class="kpi-grid" aria-label="Market Breadth and Screen Statistics">
+      <div class="kpi-card">
+        <div class="kpi-label">Qualified Setups</div>
+        <div class="kpi-val-row">
+          <strong id="stat-count" class="kpi-value">—</strong>
+          <span id="stat-universe-pct" class="kpi-sub">of US Universe</span>
+        </div>
+        <div class="kpi-bar-wrap">
+          <div id="kpi-qual-bar" class="kpi-bar-fill" style="width: 5%;"></div>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-label">Median RS Rating</div>
+        <div class="kpi-val-row">
+          <strong id="stat-rs" class="kpi-value">—</strong>
+          <span class="kpi-badge badge-teal">Top Decile</span>
+        </div>
+        <div class="kpi-detail">Relative strength vs. SPY baseline</div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-label">Median from 52W High</div>
+        <div class="kpi-val-row">
+          <strong id="stat-high" class="kpi-value">—</strong>
+          <span class="kpi-sub">Coiling at resistance</span>
+        </div>
+        <div class="kpi-detail">Eliminates overhead supply traps</div>
+      </div>
+
+      <div class="kpi-card accent-card">
+        <div class="kpi-label">Near 52W High (Within 5%)</div>
+        <div class="kpi-val-row">
+          <strong id="stat-high5" class="kpi-value text-amber">—</strong>
+          <span class="kpi-badge badge-amber">Near High</span>
+        </div>
+        <div class="kpi-detail">Candidates coiling at annual resistance</div>
+      </div>
+    </section>
+
+    <!-- Interactive Terminal Screener Console -->
+    <section class="screener-console">
+      
+      <!-- Quick Filter Chips Toolbar -->
+      <div class="chips-container">
+        <div class="chips-label">Quick Lenses:</div>
+        <div class="chips-list">
+          <button class="filter-chip active" data-chip="all" type="button">All Candidates</button>
+          <button class="filter-chip" data-chip="RS90" type="button">⚡ RS 90+ Leaders</button>
+          <button class="filter-chip" data-chip="HIGH5" type="button">🎯 Within 5% High</button>
+          <button class="filter-chip" data-chip="VOL" type="button">📦 Volume Expansion (&gt;1.5×)</button>
+          <button class="filter-chip" data-chip="STARRED" type="button">★ Watchlist Only</button>
+        </div>
+      </div>
+
+      <!-- Controls & Filter Toolbar -->
+      <div class="toolbar">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="8.5" cy="8.5" r="5.5"/>
+            <path d="M12.5 12.5L17 17"/>
+          </svg>
+          <input id="search" type="search" placeholder="Search ticker or company… (Press '/' to focus)" autocomplete="off" spellcheck="false">
+          <button id="search-clear" class="search-clear-btn hidden" type="button" aria-label="Clear search">×</button>
+        </div>
+
+        <div class="filter-group">
+          <div class="select-wrapper">
+            <label for="rs-filter">Min RS</label>
+            <select id="rs-filter">
+              <option value="70">RS 70+</option>
+              <option value="80">RS 80+</option>
+              <option value="90">RS 90+ (Elite)</option>
+              <option value="95">RS 95+ (Super)</option>
+            </select>
+          </div>
+
+          <div class="select-wrapper">
+            <label for="high-filter">Distance from 52W High</label>
+            <select id="high-filter">
+              <option value="25">Within 25%</option>
+              <option value="15">Within 15%</option>
+              <option value="10">Within 10%</option>
+              <option value="5">Within 5%</option>
+            </select>
+          </div>
+
+          <div class="select-wrapper">
+            <label for="vol-filter">Min Volume</label>
+            <select id="vol-filter">
+              <option value="0">All Volumes</option>
+              <option value="1.0">Above Average (1.0×+)</option>
+              <option value="1.5">Expanding (1.5×+)</option>
+              <option value="2.0">Heavy Volume (2.0×+)</option>
+            </select>
+          </div>
+
+          <button id="export" class="btn-secondary" type="button" title="Download filtered candidates as CSV">
+            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 2v9M4 7l4 4 4-4M2 13h12"/></svg>
+            <span>Export CSV</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- State: Loading -->
+      <div id="loading-state" class="state-container">
+        <div class="terminal-loader">
+          <div class="loader-ring"></div>
+          <div class="loader-pulse"></div>
+        </div>
+        <strong class="state-heading">Loading Candidate Universe…</strong>
+        <p class="state-sub">Fetching verified static snapshot from VCPScanner infrastructure</p>
+      </div>
+
+      <!-- State: Error Fallback Notice (hidden by default) -->
+      <div id="fallback-notice" class="fallback-banner hidden">
+        <span class="banner-icon">ℹ</span>
+        <span class="banner-text">Displaying verified local baseline snapshot while CDN synchronization completes.</span>
+      </div>
+
+      <!-- Table Container -->
+      <div id="table-state" class="table-container hidden">
+        <div class="result-meta-bar">
+          <div class="result-summary">
+            <span id="result-count" class="count-badge">0 candidates</span>
+            <span class="result-instruction">Click any row to open the complete Stage 2 diagnostic checklist</span>
+          </div>
+          <div class="table-shortcuts-hint">
+            <span>Tip: Click column header to sort</span>
+          </div>
+        </div>
+
+        <div class="table-scroll-wrap">
+          <table class="data-table" id="screener-table">
+            <thead>
+              <tr>
+                <th class="th-star" title="Star / Add to Watchlist">★</th>
+                <th data-sort="ticker" class="th-ticker sorted-desc">
+                  <span>Stock</span> <span class="sort-arrow">▼</span>
+                </th>
+                <th data-sort="price" class="th-num">
+                  <span>Price</span> <span class="sort-arrow"></span>
+                </th>
+                <th data-sort="change_pct" class="th-num">
+                  <span>Day %</span> <span class="sort-arrow"></span>
+                </th>
+                <th data-sort="rs_rating" class="th-num" title="Minervini Relative Strength Rating (0–99)">
+                  <span>RS Rating</span> <span class="sort-arrow"></span>
+                </th>
+                <th data-sort="price_to_sma50" class="th-num" title="Price relative to 50-day Simple Moving Average">
+                  <span>vs 50 SMA</span> <span class="sort-arrow"></span>
+                </th>
+                <th data-sort="price_to_sma200" class="th-num" title="Price relative to 200-day Simple Moving Average">
+                  <span>vs 200 SMA</span> <span class="sort-arrow"></span>
+                </th>
+                <th data-sort="below_52w_high_pct" class="th-range" title="Proximity to 52-week High">
+                  <span>52W High Gap</span> <span class="sort-arrow"></span>
+                </th>
+                <th data-sort="volume_ratio" class="th-vol" title="Volume vs. 50-Day Average Volume">
+                  <span>Vol Ratio</span> <span class="sort-arrow"></span>
+                </th>
+                <th class="th-actions">Action</th>
+              </tr>
+            </thead>
+            <tbody id="stock-rows">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+
+        <div id="empty-state" class="empty-results hidden">
+          <div class="empty-icon">🔍</div>
+          <h3>No candidates match the current filters</h3>
+          <p>Try lowering the RS threshold, widening the distance from 52W high, or clearing your search term.</p>
+          <button id="reset-filters-btn" class="btn-secondary compact" type="button">Reset Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide-over Inspector Drawer: 8-Rule Stage 2 Audit -->
+    <div id="inspector-overlay" class="drawer-overlay hidden"></div>
+    
+    <aside id="detail" class="inspector-drawer hidden" aria-labelledby="detail-ticker" aria-modal="true" role="dialog">
+      <div class="drawer-header">
+        <div class="drawer-stock-info">
+          <div id="detail-logo-wrap" class="drawer-logo-wrap">
+            <!-- Stock Logo injected -->
+          </div>
+          <div>
+            <div class="drawer-symbol-row">
+              <h2 id="detail-ticker" class="drawer-symbol">—</h2>
+              <button id="detail-star-btn" class="star-btn-large" type="button" title="Toggle Watchlist">★</button>
+              <span id="detail-badge" class="badge ready">STAGE 2 CANDIDATE</span>
+            </div>
+            <div id="detail-name" class="drawer-company-name">—</div>
+          </div>
+        </div>
+        <button id="detail-close" class="drawer-close-btn" type="button" aria-label="Close Inspector">✕</button>
+      </div>
+
+      <div class="drawer-scroll-body">
+        
+        <!-- Live Price & Key Metrics Strip -->
+        <div class="drawer-stats-strip">
+          <div class="d-stat">
+            <span class="d-stat-label">Last Price</span>
+            <strong id="detail-price" class="d-stat-val font-mono">—</strong>
+          </div>
+          <div class="d-stat">
+            <span class="d-stat-label">Day Change</span>
+            <strong id="detail-change" class="d-stat-val font-mono">—</strong>
+          </div>
+          <div class="d-stat">
+            <span class="d-stat-label">Market Cap</span>
+            <strong id="detail-mcap" class="d-stat-val font-mono">—</strong>
+          </div>
+          <div class="d-stat">
+            <span class="d-stat-label">RS Rating</span>
+            <strong id="detail-rs" class="d-stat-val font-mono text-teal">—</strong>
+          </div>
+        </div>
+
+        <!-- Two-Tier Stage 2 Diagnostic Checklist -->
+        <div class="audit-section">
+          <div class="audit-header">
+            <div>
+              <span class="audit-eyebrow">CANDIDATE VERIFICATION</span>
+              <h3 class="audit-title">Minervini Stage 2 Diagnostic</h3>
+            </div>
+            <span class="audit-score-tag" id="audit-score-pill">4 Pre-Screen Checks Passed</span>
+          </div>
+
+          <div class="rules-list">
+            <div class="rule-group-label">Quantitative Pre-Screen (Verified)</div>
+
+            <div class="rule-row pass">
+              <div class="rule-status">✓</div>
+              <div class="rule-content">
+                <div class="rule-title">1. Price Above 200-Day SMA</div>
+                <div class="rule-desc">Long-term institutional baseline confirmed. Stock trades above primary support.</div>
+              </div>
+              <div class="rule-metric font-mono text-teal" id="rule-1-val">+18.4% vs 200</div>
+            </div>
+
+            <div class="rule-row pass">
+              <div class="rule-status">✓</div>
+              <div class="rule-content">
+                <div class="rule-title">2. Price Above 50-Day SMA</div>
+                <div class="rule-desc">Intermediate momentum benchmark confirmed. Institutional accumulation intact.</div>
+              </div>
+              <div class="rule-metric font-mono text-teal" id="rule-2-val">+7.2% vs 50</div>
+            </div>
+
+            <div class="rule-row pass">
+              <div class="rule-status">✓</div>
+              <div class="rule-content">
+                <div class="rule-title">3. Within 25% of 52-Week High</div>
+                <div class="rule-desc">Eliminates overhead supply and bagholder resistance from prior tops.</div>
+              </div>
+              <div class="rule-metric font-mono" id="rule-3-val">-2.1% from High</div>
+            </div>
+
+            <div class="rule-row pass">
+              <div class="rule-status">✓</div>
+              <div class="rule-content">
+                <div class="rule-title">4. RS Rating ≥ 70 (Market Leadership)</div>
+                <div class="rule-desc">Outperforming at least 70% of the entire US equity universe.</div>
+              </div>
+              <div class="rule-metric font-mono text-teal" id="rule-4-val">96 / 99</div>
+            </div>
+
+            <div class="rule-group-label">Chart &amp; Pattern Review (Action Required)</div>
+
+            <div class="rule-row requires-review">
+              <div class="rule-status verify">🔍</div>
+              <div class="rule-content">
+                <div class="rule-title">5. 150-Day SMA Stack (50 &gt; 150 &gt; 200)</div>
+                <div class="rule-desc">Verify moving average stack alignment on the interactive chart before execution.</div>
+              </div>
+              <a class="rule-metric verify" id="rule-5-link" target="_blank" rel="noopener noreferrer">Verify on Chart ↗</a>
+            </div>
+
+            <div class="rule-row requires-review">
+              <div class="rule-status verify">🔍</div>
+              <div class="rule-content">
+                <div class="rule-title">6. 200-Day SMA Slope Trending Upward</div>
+                <div class="rule-desc">Confirm moving average is sloped upward for at least 1 month (preferably 4–5 months).</div>
+              </div>
+              <a class="rule-metric verify" id="rule-6-link" target="_blank" rel="noopener noreferrer">Inspect Slope ↗</a>
+            </div>
+
+            <div class="rule-row requires-review">
+              <div class="rule-status pro">⚡</div>
+              <div class="rule-content">
+                <div class="rule-title">7. VCP Contraction &amp; Pivot Buy Point</div>
+                <div class="rule-desc">Detect contraction stages (T1/T2/T3) and volume dry-up to time lowest-risk breakout.</div>
+              </div>
+              <a class="rule-metric pro" data-product-link target="_blank" rel="noopener noreferrer">VCPScanner Pro ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart Deep Link & Terminal Actions -->
+        <div class="drawer-actions-card">
+          <div class="card-text">
+            <h4>Verify Moving Average Stack &amp; Detect Live VCP Pivots</h4>
+            <p>This candidate list passes the quantitative Trend Template pre-screen. Open VCPScanner's interactive Rust/WASM charts to confirm moving average slope, or use Pro Breakout Discovery to track live pivot entries.</p>
+          </div>
+          <a id="detail-link" class="btn-primary full-width" target="_blank" rel="noopener noreferrer">
+            <span>Open Chart on VCPScanner Pro</span>
+            <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- World-Class VCPScanner Upgrade Bento Grid -->
+    <section class="upgrade-bento">
+      <div class="bento-header">
+        <div class="bento-eyebrow">INSTITUTIONAL EXECUTION</div>
+        <h2 class="bento-title">Why Top Growth Traders Graduate to <span class="gradient-text">VCPScanner Pro</span></h2>
+        <p class="bento-subtitle">
+          This free screener audits Stage 2 daily baselines. VCPScanner Pro equips you with real-time intraday pattern recognition, automated contraction depth detection, and live breakout alerts across 5,800+ US stocks.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card card-glow">
+          <div class="bento-icon">⚡</div>
+          <h3>Delayed Intraday &amp; 1-Minute Bar Alerts</h3>
+          <p>Don't wait for market close. Get instant execution alerts the exact second a stock crosses pivot resistance on explosive volume expansion.</p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-icon">📉</div>
+          <h3>Algorithmic VCP Contraction Engine</h3>
+          <p>Our proprietary engine calculates contraction count (T1, T2, T3, T4), measuring depth percentages (e.g. 24% → 11% → 4%) and volume dry-up automatically.</p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-icon">🎯</div>
+          <h3>Cheat &amp; High-Cheat Early Entries</h3>
+          <p>Identify low-in-the-base handles and early accumulation pockets 3 to 5 days before the broader market recognizes the traditional pivot breakout.</p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-icon">🚀</div>
+          <h3>Interactive Rust/WASM Charting</h3>
+          <p>High-performance client-side charting with zero latency. Seamlessly toggle between daily, weekly, and intraday timeframes with pattern overlays.</p>
+        </div>
+      </div>
+
+      <div class="bento-cta-bar">
+        <div class="cta-text">
+          <strong>Access the Full Market Screener &amp; Live Breakout Engine</strong>
+          <span>Free 7-Day Access · No Credit Card Required · Delayed Intraday Data</span>
+        </div>
+        <a class="btn-primary large" data-product-link href="https://vcpscanner.com/screens/minervini-trend-template?utm_source=github&utm_medium=bento_cta&utm_campaign=minervini-trend-template-screener">
+          <span>Launch VCPScanner Pro</span>
+          <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Methodology & Educational Authority -->
+    <section class="methodology-section">
+      <div class="methodology-header">
+        <span class="method-eyebrow">QUANTITATIVE FOUNDATION</span>
+        <h2>Mark Minervini's Stage 2 Trend Template</h2>
+        <p>
+          Derived from the Specific Entry Point Analysis (SEPA®) methodology pioneered by U.S. Investing Champion Mark Minervini, the Stage 2 Trend Template is designed to ensure you only purchase stocks in confirmed, institutional uptrends.
+        </p>
+      </div>
+
+      <div class="methodology-columns">
+        <div class="method-card">
+          <div class="method-num">01</div>
+          <h3>Why Stage 2 Only?</h3>
+          <p>Over 95% of all monster stock moves occur during Stage 2 advancing phases. By strictly excluding Stage 1 accumulation bases, Stage 3 topping patterns, and Stage 4 declines, you avoid dead money and debilitating drawdown risk.</p>
+        </div>
+
+        <div class="method-card">
+          <div class="method-num">02</div>
+          <h3>The Overhead Supply Law</h3>
+          <p>Stocks trading more than 25% below their 52-week highs are trapped under thousands of underwater investors waiting to sell on every rally. Trading near 52-week highs eliminates bagholder resistance.</p>
+        </div>
+
+        <div class="method-card">
+          <div class="method-num">03</div>
+          <h3>The Baseline Before VCP</h3>
+          <p>A Volatility Contraction Pattern (VCP) cannot form in a vacuum. The Trend Template establishes the mandatory structural foundation before progressive volatility contraction can resolve into explosive breakouts.</p>
+        </div>
+      </div>
+
+      <div class="legal-disclaimer">
+        <strong>Transparency &amp; Educational Disclosure:</strong>
+        This candidate screener is an independent quantitative research utility based on commonly published literature regarding Mark Minervini's Stage 2 Trend Template and technical trading concepts. This tool is not endorsed by, affiliated with, or sponsored by Mark Minervini or Minervini Private Access. All content is for educational and technical research purposes only and does not constitute financial, investment, or trading advice.
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Global Terminal Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.svg" alt="VCP Scanner" class="footer-logo" width="140" height="23">
+        <p class="footer-copy">Autonomous Breakout Detection &amp; Volatility Contraction Pattern Research</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://vcpscanner.com/?utm_source=github&utm_medium=footer&utm_campaign=minervini-trend-template-screener">VCP Scanner Home</a>
+        <a href="https://vcpscanner.com/screens?utm_source=github&utm_medium=footer&utm_campaign=minervini-trend-template-screener">Prebuilt Screens</a>
+        <a href="https://vcpscanner.com/breakout-stocks?utm_source=github&utm_medium=footer&utm_campaign=minervini-trend-template-screener">Live Breakouts</a>
+        <a href="https://vcpscanner.com/pricing?utm_source=github&utm_medium=footer&utm_campaign=minervini-trend-template-screener">Pro Pricing</a>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; <span id="copyright-year">2026</span> VCP Scanner. Open source research client.</span>
+        <a class="source-link" href="https://github.com/Anish1294/minervini-trend-template-screener" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
