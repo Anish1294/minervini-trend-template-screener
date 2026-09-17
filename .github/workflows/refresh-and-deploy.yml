@@ -91,7 +91,7 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p .pages-artifact
-          cp app.js index.html LICENSE logo-icon.svg logo.svg README.md sample-snapshot.json sitemap.xml strategy.json styles.css current.json .pages-artifact/
+          cp app.js index.html LICENSE logo-icon.svg logo.svg README.md sample-snapshot.json sitemap.xml strategy.json styles.css current.json googleef37d6d965b16b06.html .pages-artifact/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
