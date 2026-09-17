@@ -53,6 +53,11 @@ database server. It must not be a root or pipeline-server key.
 The pinned SSH host-key line for the database server. This prevents the Action
 from trusting an unverified host during tunnel setup.
 
+`PUBLIC_SNAPSHOT_SSH_TARGET`
+
+The restricted SSH destination in `user@host` form. Keeping it in a secret
+prevents the database host from being exposed in the public workflow source.
+
 The workflow derives the standard Pages `current.json` URL automatically. If
 you use a custom Pages domain, add the
 repository variable `PUBLIC_SNAPSHOT_URL` with that URL; this lets retries
