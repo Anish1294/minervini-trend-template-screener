@@ -7,6 +7,7 @@
   <meta name="keywords" content="Minervini trend template screener, Stage 2 stock scanner, VCP screener, Mark Minervini 8 rules, relative strength rating, breakout trading">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://Anish1294.github.io/minervini-trend-template-screener/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -119,8 +120,8 @@
           <span class="freshness-label">Daily Market Snapshot</span>
         </div>
         <div class="freshness-meta">
-          <strong id="as-of" class="as-of-time">Loading snapshot…</strong>
-          <span id="universe-note" class="universe-detail">Loading the latest published close</span>
+          <strong id="as-of" class="as-of-time">Data as of market close · Sep 13, 2026</strong>
+          <span id="universe-note" class="universe-detail">30 Qualified US Common Equities ($500M+ Cap)</span>
         </div>
         <div class="freshness-footer">
           <span class="engine-tag">Powered by VCPScanner Engine</span>
@@ -133,18 +134,18 @@
       <div class="kpi-card">
         <div class="kpi-label">Qualified Setups</div>
         <div class="kpi-val-row">
-          <strong id="stat-count" class="kpi-value">—</strong>
-          <span id="stat-universe-pct" class="kpi-sub">of US Universe</span>
+          <strong id="stat-count" class="kpi-value">30</strong>
+          <span id="stat-universe-pct" class="kpi-sub">0.5% of US market</span>
         </div>
         <div class="kpi-bar-wrap">
-          <div id="kpi-qual-bar" class="kpi-bar-fill" style="width: 5%;"></div>
+          <div id="kpi-qual-bar" class="kpi-bar-fill" style="width: 1%;"></div>
         </div>
       </div>
 
       <div class="kpi-card">
         <div class="kpi-label">Median RS Rating</div>
         <div class="kpi-val-row">
-          <strong id="stat-rs" class="kpi-value">—</strong>
+          <strong id="stat-rs" class="kpi-value">93</strong>
           <span class="kpi-badge badge-teal">Top Decile</span>
         </div>
         <div class="kpi-detail">Relative strength vs. SPY baseline</div>
@@ -153,7 +154,7 @@
       <div class="kpi-card">
         <div class="kpi-label">Median from 52W High</div>
         <div class="kpi-val-row">
-          <strong id="stat-high" class="kpi-value">—</strong>
+          <strong id="stat-high" class="kpi-value">-2.9%</strong>
           <span class="kpi-sub">Coiling at resistance</span>
         </div>
         <div class="kpi-detail">Eliminates overhead supply traps</div>
@@ -162,7 +163,7 @@
       <div class="kpi-card accent-card">
         <div class="kpi-label">Near 52W High (Within 5%)</div>
         <div class="kpi-val-row">
-          <strong id="stat-high5" class="kpi-value text-amber">—</strong>
+          <strong id="stat-high5" class="kpi-value text-amber">23 Setups</strong>
           <span class="kpi-badge badge-amber">Near High</span>
         </div>
         <div class="kpi-detail">Candidates coiling at annual resistance</div>
@@ -234,7 +235,7 @@
       </div>
 
       <!-- State: Loading -->
-      <div id="loading-state" class="state-container">
+      <div id="loading-state" class="state-container hidden">
         <div class="terminal-loader">
           <div class="loader-ring"></div>
           <div class="loader-pulse"></div>
@@ -250,10 +251,10 @@
       </div>
 
       <!-- Table Container -->
-      <div id="table-state" class="table-container hidden">
+      <div id="table-state" class="table-container">
         <div class="result-meta-bar">
           <div class="result-summary">
-            <span id="result-count" class="count-badge">0 candidates</span>
+            <span id="result-count" class="count-badge">30 candidates</span>
             <span class="result-instruction">Click any row to open the complete Stage 2 diagnostic checklist</span>
           </div>
           <div class="table-shortcuts-hint">
@@ -294,7 +295,1388 @@
               </tr>
             </thead>
             <tbody id="stock-rows">
-              <!-- Rendered dynamically -->
+              <!-- SSR_TABLE_ROWS_START -->
+      <tr data-ticker="NVDA">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('NVDA')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/NVDA.webp" alt="NVDA" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(117, 55%, 42%);">N</span>
+            <div class="stock-info">
+              <span class="stock-ticker">NVDA</span>
+              <span class="stock-name" title="NVIDIA Corporation">NVIDIA Corporation</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$142.85</td>
+        <td class="td-num">
+          <span class="change-pill pos">+3.4%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-super">98</strong>
+        </td>
+        <td class="td-num text-teal">+14.0%</td>
+        <td class="td-num text-teal">+38.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 96%;"></div>
+            </div>
+            <span class="range-label">-1.5%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.85×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 74%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/nvda?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="PLTR">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('PLTR')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/PLTR.webp" alt="PLTR" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(202, 55%, 42%);">P</span>
+            <div class="stock-info">
+              <span class="stock-ticker">PLTR</span>
+              <span class="stock-name" title="Palantir Technologies Inc.">Palantir Technologies Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$44.50</td>
+        <td class="td-num">
+          <span class="change-pill pos">+4.2%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-super">97</strong>
+        </td>
+        <td class="td-num text-teal">+19.0%</td>
+        <td class="td-num text-teal">+52.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 95%;"></div>
+            </div>
+            <span class="range-label">-2.2%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">2.15×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 86%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/pltr?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="APP">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('APP')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/APP.webp" alt="APP" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(225, 55%, 42%);">A</span>
+            <div class="stock-info">
+              <span class="stock-ticker">APP</span>
+              <span class="stock-name" title="AppLovin Corporation">AppLovin Corporation</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$168.20</td>
+        <td class="td-num">
+          <span class="change-pill pos">+2.8%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-super">99</strong>
+        </td>
+        <td class="td-num text-teal">+28.0%</td>
+        <td class="td-num text-teal">+84.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 98%;"></div>
+            </div>
+            <span class="range-label">-0.8%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.45×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 58%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/app?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="AXON">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('AXON')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/AXON.webp" alt="AXON" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(310, 55%, 42%);">A</span>
+            <div class="stock-info">
+              <span class="stock-ticker">AXON</span>
+              <span class="stock-name" title="Axon Enterprise Inc.">Axon Enterprise Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$412.30</td>
+        <td class="td-num">
+          <span class="change-pill pos">+1.9%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-super">96</strong>
+        </td>
+        <td class="td-num text-teal">+11.0%</td>
+        <td class="td-num text-teal">+32.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 92%;"></div>
+            </div>
+            <span class="range-label">-3.5%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.22×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 49%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/axon?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="ANET">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('ANET')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/ANET.webp" alt="ANET" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(116, 55%, 42%);">A</span>
+            <div class="stock-info">
+              <span class="stock-ticker">ANET</span>
+              <span class="stock-name" title="Arista Networks Inc.">Arista Networks Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$388.90</td>
+        <td class="td-num">
+          <span class="change-pill pos">+2.1%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-super">95</strong>
+        </td>
+        <td class="td-num text-teal">+9.0%</td>
+        <td class="td-num text-teal">+28.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 93%;"></div>
+            </div>
+            <span class="range-label">-2.8%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.35×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 54%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/anet?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="SPOT">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('SPOT')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/SPOT.webp" alt="SPOT" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(26, 55%, 42%);">S</span>
+            <div class="stock-info">
+              <span class="stock-ticker">SPOT</span>
+              <span class="stock-name" title="Spotify Technology S.A.">Spotify Technology S.A.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$372.40</td>
+        <td class="td-num">
+          <span class="change-pill pos">+1.4%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-elite">94</strong>
+        </td>
+        <td class="td-num text-teal">+8.0%</td>
+        <td class="td-num text-teal">+35.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 89%;"></div>
+            </div>
+            <span class="range-label">-4.5%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">0.95×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 38%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/spot?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="CEG">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('CEG')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/CEG.webp" alt="CEG" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(357, 55%, 42%);">C</span>
+            <div class="stock-info">
+              <span class="stock-ticker">CEG</span>
+              <span class="stock-name" title="Constellation Energy Corp.">Constellation Energy Corp.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$268.10</td>
+        <td class="td-num">
+          <span class="change-pill pos">+3.8%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-super">96</strong>
+        </td>
+        <td class="td-num text-teal">+22.0%</td>
+        <td class="td-num text-teal">+46.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 96%;"></div>
+            </div>
+            <span class="range-label">-1.8%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">2.40×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 96%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/ceg?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="VST">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('VST')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/VST.webp" alt="VST" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(343, 55%, 42%);">V</span>
+            <div class="stock-info">
+              <span class="stock-ticker">VST</span>
+              <span class="stock-name" title="Vistra Corp.">Vistra Corp.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$128.50</td>
+        <td class="td-num">
+          <span class="change-pill pos">+4.9%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-super">99</strong>
+        </td>
+        <td class="td-num text-teal">+25.0%</td>
+        <td class="td-num text-teal">+72.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 99%;"></div>
+            </div>
+            <span class="range-label">-0.5%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">2.80×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 100%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/vst?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="CRWD">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('CRWD')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/CRWD.webp" alt="CRWD" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(4, 55%, 42%);">C</span>
+            <div class="stock-info">
+              <span class="stock-ticker">CRWD</span>
+              <span class="stock-name" title="CrowdStrike Holdings Inc.">CrowdStrike Holdings Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$315.60</td>
+        <td class="td-num">
+          <span class="change-pill pos">+2.3%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val ">89</strong>
+        </td>
+        <td class="td-num text-teal">+7.0%</td>
+        <td class="td-num text-teal">+15.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 72%;"></div>
+            </div>
+            <span class="range-label">-11.5%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.10×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 44%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/crwd?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="LLY">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('LLY')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/LLY.webp" alt="LLY" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(241, 55%, 42%);">L</span>
+            <div class="stock-info">
+              <span class="stock-ticker">LLY</span>
+              <span class="stock-name" title="Eli Lilly and Company">Eli Lilly and Company</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$918.40</td>
+        <td class="td-num">
+          <span class="change-pill pos">+0.8%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-elite">92</strong>
+        </td>
+        <td class="td-num text-teal">+4.0%</td>
+        <td class="td-num text-teal">+21.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 88%;"></div>
+            </div>
+            <span class="range-label">-5.2%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">0.88×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 35%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/lly?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="UBER">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('UBER')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/UBER.webp" alt="UBER" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(122, 55%, 42%);">U</span>
+            <div class="stock-info">
+              <span class="stock-ticker">UBER</span>
+              <span class="stock-name" title="Uber Technologies Inc.">Uber Technologies Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$78.90</td>
+        <td class="td-num">
+          <span class="change-pill pos">+1.6%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-elite">90</strong>
+        </td>
+        <td class="td-num text-teal">+6.0%</td>
+        <td class="td-num text-teal">+18.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 91%;"></div>
+            </div>
+            <span class="range-label">-3.8%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.15×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 46%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/uber?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="GE">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('GE')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/GE.webp" alt="GE" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(110, 55%, 42%);">G</span>
+            <div class="stock-info">
+              <span class="stock-ticker">GE</span>
+              <span class="stock-name" title="GE Aerospace">GE Aerospace</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$188.40</td>
+        <td class="td-num">
+          <span class="change-pill pos">+1.2%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-elite">93</strong>
+        </td>
+        <td class="td-num text-teal">+7.0%</td>
+        <td class="td-num text-teal">+26.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 94%;"></div>
+            </div>
+            <span class="range-label">-2.5%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">0.92×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 37%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/ge?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="DECK">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('DECK')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/DECK.webp" alt="DECK" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(129, 55%, 42%);">D</span>
+            <div class="stock-info">
+              <span class="stock-ticker">DECK</span>
+              <span class="stock-name" title="Deckers Outdoor Corp.">Deckers Outdoor Corp.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$162.75</td>
+        <td class="td-num">
+          <span class="change-pill pos">+3.0%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-elite">94</strong>
+        </td>
+        <td class="td-num text-teal">+11.0%</td>
+        <td class="td-num text-teal">+25.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 97%;"></div>
+            </div>
+            <span class="range-label">-1.2%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.60×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 64%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/deck?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="TTD">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('TTD')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/TTD.webp" alt="TTD" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(236, 55%, 42%);">T</span>
+            <div class="stock-info">
+              <span class="stock-ticker">TTD</span>
+              <span class="stock-name" title="The Trade Desk Inc.">The Trade Desk Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$118.30</td>
+        <td class="td-num">
+          <span class="change-pill pos">+3.1%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-elite">91</strong>
+        </td>
+        <td class="td-num text-teal">+12.0%</td>
+        <td class="td-num text-teal">+29.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 93%;"></div>
+            </div>
+            <span class="range-label">-3.0%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.70×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 68%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/ttd?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="CAVA">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('CAVA')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/CAVA.webp" alt="CAVA" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(193, 55%, 42%);">C</span>
+            <div class="stock-info">
+              <span class="stock-ticker">CAVA</span>
+              <span class="stock-name" title="CAVA Group Inc.">CAVA Group Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$132.40</td>
+        <td class="td-num">
+          <span class="change-pill pos">+3.6%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-super">98</strong>
+        </td>
+        <td class="td-num text-teal">+18.0%</td>
+        <td class="td-num text-teal">+62.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 95%;"></div>
+            </div>
+            <span class="range-label">-1.9%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">2.10×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 84%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/cava?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="WING">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('WING')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/WING.webp" alt="WING" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(99, 55%, 42%);">W</span>
+            <div class="stock-info">
+              <span class="stock-ticker">WING</span>
+              <span class="stock-name" title="Wingstop Inc.">Wingstop Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$398.50</td>
+        <td class="td-num">
+          <span class="change-pill pos">+1.1%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-elite">92</strong>
+        </td>
+        <td class="td-num text-teal">+5.0%</td>
+        <td class="td-num text-teal">+22.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 82%;"></div>
+            </div>
+            <span class="range-label">-7.5%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">0.85×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 34%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/wing?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="DUOL">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('DUOL')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/DUOL.webp" alt="DUOL" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(38, 55%, 42%);">D</span>
+            <div class="stock-info">
+              <span class="stock-ticker">DUOL</span>
+              <span class="stock-name" title="Duolingo Inc.">Duolingo Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$284.10</td>
+        <td class="td-num">
+          <span class="change-pill pos">+4.2%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-super">95</strong>
+        </td>
+        <td class="td-num text-teal">+16.0%</td>
+        <td class="td-num text-teal">+39.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 97%;"></div>
+            </div>
+            <span class="range-label">-1.1%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.95×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 78%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/duol?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="RDDT">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('RDDT')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/RDDT.webp" alt="RDDT" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(122, 55%, 42%);">R</span>
+            <div class="stock-info">
+              <span class="stock-ticker">RDDT</span>
+              <span class="stock-name" title="Reddit Inc.">Reddit Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$76.50</td>
+        <td class="td-num">
+          <span class="change-pill pos">+5.1%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-super">96</strong>
+        </td>
+        <td class="td-num text-teal">+24.0%</td>
+        <td class="td-num text-teal">+45.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 94%;"></div>
+            </div>
+            <span class="range-label">-2.5%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">2.30×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 92%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/rddt?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="MNDY">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('MNDY')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/MNDY.webp" alt="MNDY" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(102, 55%, 42%);">M</span>
+            <div class="stock-info">
+              <span class="stock-ticker">MNDY</span>
+              <span class="stock-name" title="Monday.com Ltd.">Monday.com Ltd.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$296.80</td>
+        <td class="td-num">
+          <span class="change-pill pos">+2.4%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-elite">91</strong>
+        </td>
+        <td class="td-num text-teal">+9.0%</td>
+        <td class="td-num text-teal">+27.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 90%;"></div>
+            </div>
+            <span class="range-label">-4.0%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.25×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 50%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/mndy?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="IOT">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('IOT')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/IOT.webp" alt="IOT" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(326, 55%, 42%);">I</span>
+            <div class="stock-info">
+              <span class="stock-ticker">IOT</span>
+              <span class="stock-name" title="Samsara Inc.">Samsara Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$46.80</td>
+        <td class="td-num">
+          <span class="change-pill pos">+3.1%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-elite">93</strong>
+        </td>
+        <td class="td-num text-teal">+12.0%</td>
+        <td class="td-num text-teal">+34.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 95%;"></div>
+            </div>
+            <span class="range-label">-2.0%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.55×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 62%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/iot?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="NOW">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('NOW')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/NOW.webp" alt="NOW" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(94, 55%, 42%);">N</span>
+            <div class="stock-info">
+              <span class="stock-ticker">NOW</span>
+              <span class="stock-name" title="ServiceNow Inc.">ServiceNow Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$935.20</td>
+        <td class="td-num">
+          <span class="change-pill pos">+1.4%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val ">88</strong>
+        </td>
+        <td class="td-num text-teal">+6.0%</td>
+        <td class="td-num text-teal">+21.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 92%;"></div>
+            </div>
+            <span class="range-label">-3.2%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">0.95×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 38%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/now?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="PANW">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('PANW')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/PANW.webp" alt="PANW" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(250, 55%, 42%);">P</span>
+            <div class="stock-info">
+              <span class="stock-ticker">PANW</span>
+              <span class="stock-name" title="Palo Alto Networks Inc.">Palo Alto Networks Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$374.60</td>
+        <td class="td-num">
+          <span class="change-pill pos">+1.9%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val ">89</strong>
+        </td>
+        <td class="td-num text-teal">+7.0%</td>
+        <td class="td-num text-teal">+19.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 93%;"></div>
+            </div>
+            <span class="range-label">-2.8%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.05×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 42%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/panw?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="TOST">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('TOST')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/TOST.webp" alt="TOST" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(180, 55%, 42%);">T</span>
+            <div class="stock-info">
+              <span class="stock-ticker">TOST</span>
+              <span class="stock-name" title="Toast Inc.">Toast Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$31.40</td>
+        <td class="td-num">
+          <span class="change-pill pos">+3.7%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-elite">94</strong>
+        </td>
+        <td class="td-num text-teal">+15.0%</td>
+        <td class="td-num text-teal">+38.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 96%;"></div>
+            </div>
+            <span class="range-label">-1.6%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.85×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 74%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/tost?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="NET">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('NET')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/NET.webp" alt="NET" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(141, 55%, 42%);">N</span>
+            <div class="stock-info">
+              <span class="stock-ticker">NET</span>
+              <span class="stock-name" title="Cloudflare Inc.">Cloudflare Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$94.20</td>
+        <td class="td-num">
+          <span class="change-pill pos">+2.0%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val ">87</strong>
+        </td>
+        <td class="td-num text-teal">+8.0%</td>
+        <td class="td-num text-teal">+16.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 80%;"></div>
+            </div>
+            <span class="range-label">-8.5%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.10×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 44%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/net?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="SHOP">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('SHOP')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/SHOP.webp" alt="SHOP" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(254, 55%, 42%);">S</span>
+            <div class="stock-info">
+              <span class="stock-ticker">SHOP</span>
+              <span class="stock-name" title="Shopify Inc.">Shopify Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$82.30</td>
+        <td class="td-num">
+          <span class="change-pill pos">+2.5%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val ">88</strong>
+        </td>
+        <td class="td-num text-teal">+7.0%</td>
+        <td class="td-num text-teal">+18.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 81%;"></div>
+            </div>
+            <span class="range-label">-8.0%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.20×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 48%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/shop?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="MELI">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('MELI')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/MELI.webp" alt="MELI" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(325, 55%, 42%);">M</span>
+            <div class="stock-info">
+              <span class="stock-ticker">MELI</span>
+              <span class="stock-name" title="MercadoLibre Inc.">MercadoLibre Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$2,045.00</td>
+        <td class="td-num">
+          <span class="change-pill pos">+1.7%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-elite">90</strong>
+        </td>
+        <td class="td-num text-teal">+5.0%</td>
+        <td class="td-num text-teal">+24.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 88%;"></div>
+            </div>
+            <span class="range-label">-5.0%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">0.90×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 36%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/meli?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="HUBS">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('HUBS')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/HUBS.webp" alt="HUBS" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(6, 55%, 42%);">H</span>
+            <div class="stock-info">
+              <span class="stock-ticker">HUBS</span>
+              <span class="stock-name" title="HubSpot Inc.">HubSpot Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$612.40</td>
+        <td class="td-num">
+          <span class="change-pill pos">+1.6%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val ">86</strong>
+        </td>
+        <td class="td-num text-teal">+6.0%</td>
+        <td class="td-num text-teal">+14.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 77%;"></div>
+            </div>
+            <span class="range-label">-9.5%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">0.82×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 33%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/hubs?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="TEM">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('TEM')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/TEM.webp" alt="TEM" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(140, 55%, 42%);">T</span>
+            <div class="stock-info">
+              <span class="stock-ticker">TEM</span>
+              <span class="stock-name" title="Tempus AI Inc.">Tempus AI Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$68.90</td>
+        <td class="td-num">
+          <span class="change-pill pos">+4.8%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-super">97</strong>
+        </td>
+        <td class="td-num text-teal">+22.0%</td>
+        <td class="td-num text-teal">+48.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 97%;"></div>
+            </div>
+            <span class="range-label">-1.4%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">2.45×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 98%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/tem?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="SYM">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('SYM')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/SYM.webp" alt="SYM" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(159, 55%, 42%);">S</span>
+            <div class="stock-info">
+              <span class="stock-ticker">SYM</span>
+              <span class="stock-name" title="Symbotic Inc.">Symbotic Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$38.20</td>
+        <td class="td-num">
+          <span class="change-pill pos">+3.9%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val rs-elite">92</strong>
+        </td>
+        <td class="td-num text-teal">+14.0%</td>
+        <td class="td-num text-teal">+30.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 92%;"></div>
+            </div>
+            <span class="range-label">-3.5%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.75×</span>
+            <div class="vol-bar">
+              <div class="vol-fill high" style="width: 70%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/sym?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+      <tr data-ticker="SMCI">
+        <td class="td-star" onclick="event.stopPropagation(); window.toggleStar('SMCI')">
+          <button class="star-btn" type="button" title="Star Stock">★</button>
+        </td>
+        <td>
+          <div class="stock-cell">
+            <img class="stock-logo" src="https://assets.vcpscanner.com/logos/SMCI.webp" alt="SMCI" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="stock-logo-fallback" style="display:none; background-color: hsl(0, 55%, 42%);">S</span>
+            <div class="stock-info">
+              <span class="stock-ticker">SMCI</span>
+              <span class="stock-name" title="Super Micro Computer Inc.">Super Micro Computer Inc.</span>
+            </div>
+          </div>
+        </td>
+        <td class="td-num">$48.50</td>
+        <td class="td-num">
+          <span class="change-pill pos">+1.1%</span>
+        </td>
+        <td class="td-num">
+          <strong class="rs-val ">84</strong>
+        </td>
+        <td class="td-num text-teal">+3.0%</td>
+        <td class="td-num text-teal">+12.0%</td>
+        <td class="range-cell">
+          <div class="range-wrap">
+            <div class="range-track">
+              <div class="range-fill" style="width: 47%;"></div>
+            </div>
+            <span class="range-label">-22.0%</span>
+          </div>
+        </td>
+        <td class="vol-cell td-num">
+          <div class="vol-wrap">
+            <span class="font-mono">1.05×</span>
+            <div class="vol-bar">
+              <div class="vol-fill " style="width: 42%;"></div>
+            </div>
+          </div>
+        </td>
+        <td class="th-actions" onclick="event.stopPropagation();">
+          <a class="row-chart-link" href="https://vcpscanner.com/technical/smci?utm_source=github&utm_medium=table_row&utm_campaign=minervini-trend-template-screener" target="_blank" rel="noopener noreferrer" title="Open chart on VCPScanner">
+            Chart ↗
+          </a>
+        </td>
+      </tr>
+              <!-- SSR_TABLE_ROWS_END -->
             </tbody>
           </table>
         </div>
@@ -554,6 +1936,8 @@
     </div>
   </footer>
 
+  <!-- SSR_INITIAL_SNAPSHOT -->
+  <script id="initial-snapshot" type="application/json">{"schema_version":1,"slug":"minervini-trend-template","title":"Minervini Trend Template Candidates","generated_at":"2026-09-14T00:00:00Z","data_as_of":"2026-09-13T20:00:00Z","universe":"US common stocks with market cap of at least $500 million","filters":{"minimum_market_cap":500000000,"minimum_price_to_sma50":1,"minimum_price_to_sma200":1,"minimum_rs_rating":70,"minimum_price_to_52w_high":0.75},"count":30,"stocks":[{"ticker":"NVDA","name":"NVIDIA Corporation","price":142.85,"change_pct":3.42,"market_cap":3510000000000,"rs_rating":98,"price_to_sma50":1.14,"price_to_sma200":1.38,"price_to_52w_high":0.985,"below_52w_high_pct":1.5,"volume_ratio":1.85,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"PLTR","name":"Palantir Technologies Inc.","price":44.5,"change_pct":4.18,"market_cap":98500000000,"rs_rating":97,"price_to_sma50":1.19,"price_to_sma200":1.52,"price_to_52w_high":0.978,"below_52w_high_pct":2.2,"volume_ratio":2.15,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"APP","name":"AppLovin Corporation","price":168.2,"change_pct":2.75,"market_cap":56200000000,"rs_rating":99,"price_to_sma50":1.28,"price_to_sma200":1.84,"price_to_52w_high":0.992,"below_52w_high_pct":0.8,"volume_ratio":1.45,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"AXON","name":"Axon Enterprise Inc.","price":412.3,"change_pct":1.85,"market_cap":31400000000,"rs_rating":96,"price_to_sma50":1.11,"price_to_sma200":1.32,"price_to_52w_high":0.965,"below_52w_high_pct":3.5,"volume_ratio":1.22,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"ANET","name":"Arista Networks Inc.","price":388.9,"change_pct":2.1,"market_cap":121800000000,"rs_rating":95,"price_to_sma50":1.09,"price_to_sma200":1.28,"price_to_52w_high":0.972,"below_52w_high_pct":2.8,"volume_ratio":1.35,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"SPOT","name":"Spotify Technology S.A.","price":372.4,"change_pct":1.45,"market_cap":74500000000,"rs_rating":94,"price_to_sma50":1.08,"price_to_sma200":1.35,"price_to_52w_high":0.955,"below_52w_high_pct":4.5,"volume_ratio":0.95,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"CEG","name":"Constellation Energy Corp.","price":268.1,"change_pct":3.8,"market_cap":84200000000,"rs_rating":96,"price_to_sma50":1.22,"price_to_sma200":1.46,"price_to_52w_high":0.982,"below_52w_high_pct":1.8,"volume_ratio":2.4,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"VST","name":"Vistra Corp.","price":128.5,"change_pct":4.9,"market_cap":44800000000,"rs_rating":99,"price_to_sma50":1.25,"price_to_sma200":1.72,"price_to_52w_high":0.995,"below_52w_high_pct":0.5,"volume_ratio":2.8,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"CRWD","name":"CrowdStrike Holdings Inc.","price":315.6,"change_pct":2.3,"market_cap":76800000000,"rs_rating":89,"price_to_sma50":1.07,"price_to_sma200":1.15,"price_to_52w_high":0.885,"below_52w_high_pct":11.5,"volume_ratio":1.1,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"LLY","name":"Eli Lilly and Company","price":918.4,"change_pct":0.85,"market_cap":872000000000,"rs_rating":92,"price_to_sma50":1.04,"price_to_sma200":1.21,"price_to_52w_high":0.948,"below_52w_high_pct":5.2,"volume_ratio":0.88,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"UBER","name":"Uber Technologies Inc.","price":78.9,"change_pct":1.65,"market_cap":164000000000,"rs_rating":90,"price_to_sma50":1.06,"price_to_sma200":1.18,"price_to_52w_high":0.962,"below_52w_high_pct":3.8,"volume_ratio":1.15,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"GE","name":"GE Aerospace","price":188.4,"change_pct":1.2,"market_cap":205000000000,"rs_rating":93,"price_to_sma50":1.07,"price_to_sma200":1.26,"price_to_52w_high":0.975,"below_52w_high_pct":2.5,"volume_ratio":0.92,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"DECK","name":"Deckers Outdoor Corp.","price":162.75,"change_pct":2.95,"market_cap":24900000000,"rs_rating":94,"price_to_sma50":1.11,"price_to_sma200":1.25,"price_to_52w_high":0.988,"below_52w_high_pct":1.2,"volume_ratio":1.6,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"TTD","name":"The Trade Desk Inc.","price":118.3,"change_pct":3.1,"market_cap":58100000000,"rs_rating":91,"price_to_sma50":1.12,"price_to_sma200":1.29,"price_to_52w_high":0.97,"below_52w_high_pct":3.0,"volume_ratio":1.7,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"CAVA","name":"CAVA Group Inc.","price":132.4,"change_pct":3.65,"market_cap":15200000000,"rs_rating":98,"price_to_sma50":1.18,"price_to_sma200":1.62,"price_to_52w_high":0.981,"below_52w_high_pct":1.9,"volume_ratio":2.1,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"WING","name":"Wingstop Inc.","price":398.5,"change_pct":1.15,"market_cap":11700000000,"rs_rating":92,"price_to_sma50":1.05,"price_to_sma200":1.22,"price_to_52w_high":0.925,"below_52w_high_pct":7.5,"volume_ratio":0.85,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"DUOL","name":"Duolingo Inc.","price":284.1,"change_pct":4.25,"market_cap":12400000000,"rs_rating":95,"price_to_sma50":1.16,"price_to_sma200":1.39,"price_to_52w_high":0.989,"below_52w_high_pct":1.1,"volume_ratio":1.95,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"RDDT","name":"Reddit Inc.","price":76.5,"change_pct":5.1,"market_cap":12800000000,"rs_rating":96,"price_to_sma50":1.24,"price_to_sma200":1.45,"price_to_52w_high":0.975,"below_52w_high_pct":2.5,"volume_ratio":2.3,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"MNDY","name":"Monday.com Ltd.","price":296.8,"change_pct":2.4,"market_cap":14600000000,"rs_rating":91,"price_to_sma50":1.09,"price_to_sma200":1.27,"price_to_52w_high":0.96,"below_52w_high_pct":4.0,"volume_ratio":1.25,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"IOT","name":"Samsara Inc.","price":46.8,"change_pct":3.15,"market_cap":25800000000,"rs_rating":93,"price_to_sma50":1.12,"price_to_sma200":1.34,"price_to_52w_high":0.98,"below_52w_high_pct":2.0,"volume_ratio":1.55,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"NOW","name":"ServiceNow Inc.","price":935.2,"change_pct":1.35,"market_cap":192000000000,"rs_rating":88,"price_to_sma50":1.06,"price_to_sma200":1.21,"price_to_52w_high":0.968,"below_52w_high_pct":3.2,"volume_ratio":0.95,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"PANW","name":"Palo Alto Networks Inc.","price":374.6,"change_pct":1.9,"market_cap":121000000000,"rs_rating":89,"price_to_sma50":1.07,"price_to_sma200":1.19,"price_to_52w_high":0.972,"below_52w_high_pct":2.8,"volume_ratio":1.05,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"TOST","name":"Toast Inc.","price":31.4,"change_pct":3.7,"market_cap":17200000000,"rs_rating":94,"price_to_sma50":1.15,"price_to_sma200":1.38,"price_to_52w_high":0.984,"below_52w_high_pct":1.6,"volume_ratio":1.85,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"NET","name":"Cloudflare Inc.","price":94.2,"change_pct":2.05,"market_cap":32100000000,"rs_rating":87,"price_to_sma50":1.08,"price_to_sma200":1.16,"price_to_52w_high":0.915,"below_52w_high_pct":8.5,"volume_ratio":1.1,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"SHOP","name":"Shopify Inc.","price":82.3,"change_pct":2.45,"market_cap":105000000000,"rs_rating":88,"price_to_sma50":1.07,"price_to_sma200":1.18,"price_to_52w_high":0.92,"below_52w_high_pct":8.0,"volume_ratio":1.2,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"MELI","name":"MercadoLibre Inc.","price":2045.0,"change_pct":1.7,"market_cap":103500000000,"rs_rating":90,"price_to_sma50":1.05,"price_to_sma200":1.24,"price_to_52w_high":0.95,"below_52w_high_pct":5.0,"volume_ratio":0.9,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"HUBS","name":"HubSpot Inc.","price":612.4,"change_pct":1.55,"market_cap":31200000000,"rs_rating":86,"price_to_sma50":1.06,"price_to_sma200":1.14,"price_to_52w_high":0.905,"below_52w_high_pct":9.5,"volume_ratio":0.82,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"TEM","name":"Tempus AI Inc.","price":68.9,"change_pct":4.8,"market_cap":11400000000,"rs_rating":97,"price_to_sma50":1.22,"price_to_sma200":1.48,"price_to_52w_high":0.986,"below_52w_high_pct":1.4,"volume_ratio":2.45,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"SYM","name":"Symbotic Inc.","price":38.2,"change_pct":3.9,"market_cap":22400000000,"rs_rating":92,"price_to_sma50":1.14,"price_to_sma200":1.3,"price_to_52w_high":0.965,"below_52w_high_pct":3.5,"volume_ratio":1.75,"last_updated":"2026-09-13T20:00:00Z"},{"ticker":"SMCI","name":"Super Micro Computer Inc.","price":48.5,"change_pct":1.1,"market_cap":28400000000,"rs_rating":84,"price_to_sma50":1.03,"price_to_sma200":1.12,"price_to_52w_high":0.78,"below_52w_high_pct":22.0,"volume_ratio":1.05,"last_updated":"2026-09-13T20:00:00Z"}]}</script>
   <script src="app.js" defer></script>
 </body>
 </html>
