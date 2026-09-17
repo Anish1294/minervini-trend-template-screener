@@ -25,14 +25,15 @@ from psycopg2.extras import RealDictCursor
 
 BASE_QUERY = """
 SELECT
-    ticker, company_name, price, market_cap, return_1d, rs_rating,
-    price_to_sma50, price_to_sma200, price_to_52w_high,
-    volume_ratio, last_updated
-FROM screening_metrics
-WHERE country = 'US'
-  AND instrument_type = 'common'
-  AND market_cap >= 500000000
-  AND price IS NOT NULL
+    sm.ticker, c.company_name, sm.price, sm.market_cap, sm.return_1d,
+    sm.rs_rating, sm.price_to_sma50, sm.price_to_sma200,
+    sm.price_to_52w_high, sm.volume_ratio, sm.last_updated
+FROM screening_metrics AS sm
+JOIN companies AS c ON c.ticker = sm.ticker
+WHERE c.country = 'US'
+  AND sm.instrument_type = 'common'
+  AND sm.market_cap >= 500000000
+  AND sm.price IS NOT NULL
 """
 
 
