@@ -1,10 +1,10 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "slug": "minervini-trend-template",
   "display_name": "Minervini Trend Template Candidates",
   "data": {
-    "url": "https://assets.vcpscanner.com/public-screens/v1/minervini-trend-template/current.json",
-    "refresh_label": "Updated after each VCPScanner market-data refresh"
+    "url": "./current.json",
+    "refresh_label": "Updated after the daily market-data refresh"
   },
   "thresholds": {
     "minimum_market_cap": 500000000,
