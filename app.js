@@ -149,24 +149,36 @@ async function load() {
     });
     bindProductLinks();
 
-    // 2. Load the static Pages snapshot. A cached last-known-good payload is
-    // used only when the network is unavailable; it is never presented as a
-    // fresh market close.
+    // 2. Load the static Pages snapshot.
+    // First check if an embedded SSR initial snapshot exists in the document (0ms load).
     let payload = null;
-    try {
-      payload = await fetchSnapshot(state.config.data.url);
-      state.snapshotSource = "live";
-      storeCachedSnapshot(payload);
-    } catch (fetchErr) {
-      console.warn("Live Pages snapshot unavailable; trying last-known-good cache", fetchErr);
-      payload = readCachedSnapshot();
-      if (payload) {
-        state.snapshotSource = "cached";
-      } else {
-        // This is an explicitly labelled demo fallback for first-time offline
-        // visits. It must never be described as verified live market data.
-        payload = await fetchSnapshot("sample-snapshot.json");
-        state.snapshotSource = "sample";
+    const embeddedScript = document.getElementById("initial-snapshot");
+    if (embeddedScript && embeddedScript.textContent) {
+      try {
+        payload = validateSnapshot(JSON.parse(embeddedScript.textContent));
+        state.snapshotSource = "live";
+        storeCachedSnapshot(payload);
+      } catch (e) {
+        console.warn("Could not parse embedded SSR snapshot", e);
+      }
+    }
+
+    if (!payload) {
+      try {
+        payload = await fetchSnapshot(state.config.data.url);
+        state.snapshotSource = "live";
+        storeCachedSnapshot(payload);
+      } catch (fetchErr) {
+        console.warn("Live Pages snapshot unavailable; trying last-known-good cache", fetchErr);
+        payload = readCachedSnapshot();
+        if (payload) {
+          state.snapshotSource = "cached";
+        } else {
+          // This is an explicitly labelled demo fallback for first-time offline
+          // visits. It must never be described as verified live market data.
+          payload = await fetchSnapshot("sample-snapshot.json");
+          state.snapshotSource = "sample";
+        }
       }
     }
 
