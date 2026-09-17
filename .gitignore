@@ -1,0 +1,9 @@
+# Local files and IDEs
+__pycache__/
+.env
+.env.local
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.csv
