@@ -1705,6 +1705,35 @@
           </table>
         </div>
 
+        <!-- Terminal Pagination Toolbar -->
+        <div id="pagination-bar" class="pagination-bar">
+          <div class="pagination-info">
+            <span id="pagination-range">Showing <strong>1–25</strong> of <strong>300</strong> qualified setups</span>
+          </div>
+
+          <div class="pagination-controls">
+            <button id="pg-prev" class="pg-btn" type="button" aria-label="Previous Page" disabled>
+              <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 12L6 8l4-4"/></svg>
+              <span>Prev</span>
+            </button>
+            <div id="pg-numbers" class="pg-numbers"></div>
+            <button id="pg-next" class="pg-btn" type="button" aria-label="Next Page">
+              <span>Next</span>
+              <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg>
+            </button>
+          </div>
+
+          <div class="pagination-size">
+            <span class="pg-size-label">Per page:</span>
+            <div class="pg-size-pills">
+              <button class="size-pill active" data-size="25" type="button">25</button>
+              <button class="size-pill" data-size="50" type="button">50</button>
+              <button class="size-pill" data-size="100" type="button">100</button>
+              <button class="size-pill" data-size="all" type="button">All</button>
+            </div>
+          </div>
+        </div>
+
         <div id="empty-state" class="empty-results hidden">
           <div class="empty-icon">🔍</div>
           <h3>No candidates match the current filters</h3>
