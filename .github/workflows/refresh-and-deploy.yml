@@ -1,0 +1,64 @@
+name: Refresh market snapshot and deploy Pages
+
+on:
+  schedule:
+    # 8:17 PM Eastern, after the 4:30 PM ET backend run and outside the busy
+    # top-of-hour Actions queue. GitHub evaluates this in America/New_York.
+    - cron: "17 20 * * 1-5"
+      timezone: "America/New_York"
+    # Retry later if the backend run was unusually slow or GitHub delayed the
+    # first scheduled run. The script is a no-op when the session is unchanged.
+    - cron: "17 22 * * 1-5"
+      timezone: "America/New_York"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  refresh-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install snapshot dependency
+        run: python -m pip install --disable-pip-version-check psycopg2-binary
+
+      - name: Build verified session snapshot
+        env:
+          PUBLIC_SNAPSHOT_DATABASE_URL: ${{ secrets.PUBLIC_SNAPSHOT_DATABASE_URL }}
+          PUBLIC_SNAPSHOT_URL: ${{ vars.PUBLIC_SNAPSHOT_URL || format('https://{0}.github.io/{1}/current.json', github.repository_owner, github.event.repository.name) }}
+        run: python scripts/refresh_snapshot.py --output current.json
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prepare Pages artifact
+        run: |
+          mkdir -p .pages-artifact
+          cp app.js index.html LICENSE logo-icon.svg logo.svg README.md sample-snapshot.json strategy.json styles.css current.json .pages-artifact/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .pages-artifact
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
