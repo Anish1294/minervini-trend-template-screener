@@ -81,7 +81,7 @@ jobs:
         env:
           PUBLIC_SNAPSHOT_DATABASE_URL: ${{ secrets.PUBLIC_SNAPSHOT_DATABASE_URL }}
           PUBLIC_SNAPSHOT_URL: ${{ vars.PUBLIC_SNAPSHOT_URL || format('https://{0}.github.io/{1}/current.json', github.repository_owner, github.event.repository.name) }}
-        run: python scripts/refresh_snapshot.py --output current.json
+        run: python scripts/refresh_snapshot.py --output current.json --html-input index.html --html-output index.html --sitemap sitemap.xml
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
@@ -89,7 +89,7 @@ jobs:
       - name: Prepare Pages artifact
         run: |
           mkdir -p .pages-artifact
-          cp app.js index.html LICENSE logo-icon.svg logo.svg README.md sample-snapshot.json strategy.json styles.css current.json .pages-artifact/
+          cp app.js index.html LICENSE logo-icon.svg logo.svg README.md sample-snapshot.json sitemap.xml strategy.json styles.css current.json .pages-artifact/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
