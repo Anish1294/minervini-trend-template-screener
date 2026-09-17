@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "slug": "minervini-trend-template",
+  "display_name": "Minervini Trend Template Candidates",
+  "data": {
+    "url": "https://assets.vcpscanner.com/public-screens/v1/minervini-trend-template/current.json",
+    "refresh_label": "Updated after each VCPScanner market-data refresh"
+  },
+  "thresholds": {
+    "minimum_market_cap": 500000000,
+    "minimum_price_to_sma50": 1,
+    "minimum_price_to_sma200": 1,
+    "minimum_price_to_52w_high": 0.75,
+    "minimum_rs_rating": 70
+  },
+  "terminal": {
+    "label": "Scan the full US market",
+    "message": "Automate this audit across the full supported US universe with delayed intraday prices, charts, VCP signals, and alerts.",
+    "url": "https://vcpscanner.com/screens/minervini-trend-template?utm_source=github&utm_medium=workbench&utm_campaign=minervini-trend-template-screener"
+  }
+}
