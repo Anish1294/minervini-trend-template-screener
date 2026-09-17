@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 63" width="100%" height="100%">
+  <!-- Horizontal Line -->
+  <line x1="0" y1="15" x2="106" y2="15" stroke="#00D19D" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Grey Candle -->
+  <rect x="6" y="15" width="4" height="48" rx="2" fill="#8B9CB0"/>
+  <rect x="0" y="25" width="16" height="28" rx="3" fill="#8B9CB0"/>
+
+  <!-- Teal Candle 1 -->
+  <rect x="36" y="22" width="4" height="35" rx="2" fill="#00D19D"/>
+  <rect x="30" y="30" width="16" height="20" rx="3" fill="#00D19D"/>
+
+  <!-- Teal Candle 2 -->
+  <rect x="66" y="27" width="4" height="25" rx="2" fill="#00D19D"/>
+  <rect x="60" y="33" width="16" height="13" rx="3" fill="#00D19D"/>
+
+  <!-- Blue Candle -->
+  <rect x="96" y="0" width="4" height="55" rx="2" fill="#3B82F6"/>
+  <rect x="90" y="5" width="16" height="42" rx="3" fill="#3B82F6"/>
+
+  <!-- Text -->
+  <text x="128" y="47" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="700" letter-spacing="-0.5">VCP Scanner</text>
+</svg>
