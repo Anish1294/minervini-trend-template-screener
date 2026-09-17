@@ -137,6 +137,45 @@ async function fetchSnapshot(url) {
   return validateSnapshot(await response.json());
 }
 
+function snapshotIsFresher(candidate, current) {
+  const candidateSession = String(candidate?.session_date || "");
+  const currentSession = String(current?.session_date || "");
+  if (candidateSession !== currentSession) {
+    return Boolean(candidateSession) && (!currentSession || candidateSession > currentSession);
+  }
+
+  for (const key of ["data_as_of", "generated_at"]) {
+    const candidateTime = Date.parse(candidate?.[key] || "");
+    const currentTime = Date.parse(current?.[key] || "");
+    if (Number.isFinite(candidateTime) && Number.isFinite(currentTime) && candidateTime !== currentTime) {
+      return candidateTime > currentTime;
+    }
+  }
+  return false;
+}
+
+function applySnapshot(payload, source) {
+  state.snapshotSource = source;
+  state.stocks = payload.stocks.map(normalizeStock).filter((s) => s.ticker);
+
+  const fallbackNotice = $("#fallback-notice");
+  if (source === "live") {
+    fallbackNotice?.classList.add("hidden");
+  } else {
+    fallbackNotice?.classList.remove("hidden");
+    const notice = $("#fallback-notice .banner-text");
+    if (notice) {
+      notice.textContent = source === "cached"
+        ? "Offline: displaying the last successful market snapshot."
+        : "Sample data only: live market data is unavailable.";
+    }
+  }
+
+  renderFreshness(payload);
+  renderStats();
+  applyFilters();
+}
+
 // Load Application Data
 async function load() {
   initWatchlist();
@@ -152,11 +191,13 @@ async function load() {
     // 2. Load the static Pages snapshot.
     // First check if an embedded SSR initial snapshot exists in the document (0ms load).
     let payload = null;
+    let usedEmbeddedSnapshot = false;
     const embeddedScript = document.getElementById("initial-snapshot");
     if (embeddedScript && embeddedScript.textContent) {
       try {
         payload = validateSnapshot(JSON.parse(embeddedScript.textContent));
         state.snapshotSource = "live";
+        usedEmbeddedSnapshot = true;
         storeCachedSnapshot(payload);
       } catch (e) {
         console.warn("Could not parse embedded SSR snapshot", e);
@@ -182,23 +223,25 @@ async function load() {
       }
     }
 
-    state.stocks = payload.stocks.map(normalizeStock).filter((s) => s.ticker);
-    if (state.snapshotSource !== "live") {
-      $("#fallback-notice")?.classList.remove("hidden");
-      const notice = $("#fallback-notice .banner-text");
-      if (notice) {
-        notice.textContent = state.snapshotSource === "cached"
-          ? "Offline: displaying the last successful market snapshot."
-          : "Sample data only: live market data is unavailable.";
-      }
-    }
-
-    renderFreshness(payload);
-    renderStats();
-    applyFilters();
+    applySnapshot(payload, state.snapshotSource);
 
     $("#loading-state").classList.add("hidden");
     $("#table-state").classList.remove("hidden");
+
+    // SSR data makes the first paint instant, but it may be cached separately
+    // from current.json. Revalidate in the background and replace it whenever
+    // the static endpoint contains a newer valid market session.
+    if (usedEmbeddedSnapshot) {
+      fetchSnapshot(state.config.data.url)
+        .then((freshPayload) => {
+          if (snapshotIsFresher(freshPayload, payload)) {
+            payload = freshPayload;
+            storeCachedSnapshot(freshPayload);
+            applySnapshot(freshPayload, "live");
+          }
+        })
+        .catch((refreshErr) => console.warn("Background snapshot refresh unavailable", refreshErr));
+    }
 
   } catch (err) {
     console.error("Critical failure during initialization", err);
